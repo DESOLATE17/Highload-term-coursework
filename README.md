@@ -323,11 +323,37 @@ Issues_comments:
     136 * 4200M(420М репозиториев, в среднем 5 issue в репозитории и 2 комметария к Issues) = 571.2 Гб
 ```
 
+## Физическая схема
 
+### Выбор СУБД
+
+![Схема распределения таблиц по базам данных](images/database.png)
+
+### Индексы
+
+Hash-индексы по FK для repositories(user_id), issues(repo_id), pull_requests(repo_id), issues_comments(issue_id), pull_request_comments(pull_request_id) для ускорения select запросов.
+
+B-tree индекс для (repo_id, creation_date) у pull_request и issue, чтобы ускорить сортировку.
+
+
+### Шардинг
+
+В качестве ключа для шардинга используются id(PK), на картинке приведены id для шардинга каждой таблицы.
+
+### Клиентские библиотеки / интеграции
+
+Язык бэкенда - Go, поэтому в качестве библиотек были выбраны:
+
+- Postgres - [pgx](https://github.com/jackc/pgx)
+- Redis - [официальный драйвер](https://github.com/redis/go-redis)
+- Amazon s3 - [AWS SDK](https://pkg.go.dev/github.com/aws/aws-sdk-go)
 
 ## Источники
 
 1. https://github.com/about
 2. https://hypestat.com/info/github.com
 3. https://octoverse.github.com/
+4. https://pkg.go.dev/github.com/aws/aws-sdk-go
+5. https://github.com/redis/go-redis
+6. https://github.com/jackc/pgx
 
