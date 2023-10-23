@@ -361,4 +361,5 @@ B-tree индекс для (repo_id, creation_date) у pull_request и issue, ч
 4. https://pkg.go.dev/github.com/aws/aws-sdk-go
 5. https://github.com/redis/go-redis
 6. https://github.com/jackc/pgx
+7. https://www.elastic.co/customers/github
 
