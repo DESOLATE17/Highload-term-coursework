@@ -422,13 +422,14 @@ Kubernetes и Istio позволяют равномерно распределя
 
 | Сервис        | Целевая пиковая нагрузка, RPS | CPU | RAM    | Net         |
 |---------------|-------------------------------|-----|--------|-------------|
-| Auth          | 14300                         | 143 | 14 Gb  | 1.16 Gbit/s |
-| Search        | 463                           | 5   | 0.5 Gb | 50 Mbit/s   |
-| Repo          | 3750                          | 38  | 3.8 Gb | 0.5 Gbit/s  |
-| Issue         | 1404                          | 14  | 1.4 Gb | 0.1 Gbit/s  |
-| Pull requests | 1984                          | 20  | 2 Gb   | 0.15 Gbit/s |
+| Auth          | 14300                         | 14  | 4 Gb   | 1.16 Gbit/s |
+| Search        | 463                           | 8   | 50 Gb  | 50 Mbit/s   |
+| Repo          | 3750                          | 3   | 1 Gb   | 0.5 Gbit/s  |
+| Issue         | 1404                          | 2   | 1 Gb   | 0.1 Gbit/s  |
+| Pull requests | 1984                          | 2   | 1 Gb   | 0.15 Gbit/s |
 
 Так как через сервис авторизации проходит множество запросов, его развернем на более мощных серверах.
+Согласно [рекомендациям](https://opster.com/guides/elasticsearch/capacity-planning/elasticsearch-hardware-requirements/#:~:text=As%20a%20general%20guideline%2C%20it,or%20more%20RAM%20per%20node.) для elastic search на каждую ноду рекомендуется 2 ядра и 16 GB RAM, для рассчёта используем 3 ноды. 
 
 | Сервис | Хостинг | Конфигурация                      | Cores | Cnt | Покупка | Аренда/Амортизация |
 |--------|---------|-----------------------------------|-------|-----|---------|--------------------|
@@ -446,3 +447,4 @@ Kubernetes и Istio позволяют равномерно распределя
 6. https://github.com/jackc/pgx
 7. https://www.elastic.co/customers/github
 8. https://github.com/init/highload/blob/main/highload_l11_hosting.md
+9. https://opster.com/guides/elasticsearch/capacity-planning/elasticsearch-hardware-requirements/#:~:text=As%20a%20general%20guideline%2C%20it,or%20more%20RAM%20per%20node.
