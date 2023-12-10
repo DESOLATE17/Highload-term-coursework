@@ -459,7 +459,7 @@ hash-функции
 | Envoy          | Yandex.Cloud | 6430/16GB/1xNVMe128Gb/2*10Gb/s | 32  | 2   | $9 000  | $155               |
 | Auth           | Yandex.Cloud | 6430/16GB/1xNVMe64Gb/10Gb/s    | 20  | 3   | $8 000  | $120               |
 | Elastic Search | Yandex.Cloud | 2*6430/32GB/1xNVMe512Gb/10Gb/s | 4   | 6   | $11 000 | $300               |
-| Другие         | Yandex.Cloud | 6430/4GB/1xNVMe64Gb/1Gb/s      | 8   | 24  | $6 000  | $80                |
+| Другие         | Yandex.Cloud | 6430/8GB/1xNVMe64Gb/1Gb/s      | 8   | 24  | $6 000  | $80                |
 
 ### Postgres
 
